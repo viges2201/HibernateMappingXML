@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.EmployeeEntity" table="employee" schema="test">
+        <id name="id">
+            <column name="ID" sql-type="bigint(20)"/>
+        </id>
+        <property name="firstName">
+            <column name="FIRST_NAME" sql-type="varchar(255)"/>
+        </property>
+        <property name="lastName">
+            <column name="LAST_NAME" sql-type="varchar(255)"/>
+        </property>
+        <property name="birthday">
+            <column name="BIRTHDAY" sql-type="date"/>
+        </property>
+        <property name="addressId">
+            <column name="ADDRESS_ID" sql-type="bigint(20)"/>
+        </property>
+        <one-to-one name="addressById" class="entity.AddressEntity"/>
+    </class>
+</hibernate-mapping>
